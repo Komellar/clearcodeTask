@@ -6,7 +6,6 @@ const Home = () => (
     <main className="content">
       <h1 className="title">Clearcode Frontend Academy</h1>
       <h2>Background story:</h2>
-      <h3>hello world</h3>
       <p>
         Klient (Rootsly) to nowa platforma społecznościowa skupiona wokół małych
         społeczności. Jednym z widoków, które wchodzą w skład MVP to lista
