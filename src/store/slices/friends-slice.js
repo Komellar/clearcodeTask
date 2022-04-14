@@ -7,7 +7,11 @@ const friendsSlice = createSlice({
   },
   reducers: {
     setPeople(state, action) {
-      state.allPeople = action.payload;
+      let unsortedList = [...action.payload];
+      let sortedList = unsortedList.sort((a, b) =>
+        a.status > b.status ? 1 : -1
+      );
+      state.allPeople = sortedList;
     },
     addToFriendsList(state, action) {
       const newFriend = action.payload;
