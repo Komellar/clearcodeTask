@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Bar = styled.nav`
   width: 100%;
@@ -26,12 +27,13 @@ export const Info = styled.div`
   align-items: center;
 `;
 
-export const Logo = styled.h1`
+export const Logo = styled(Link)`
   font-style: normal;
   font-weight: 900;
   font-size: 32px;
   line-height: 32px;
   color: #fff;
+  text-decoration: none;
 
   @media screen and (max-width: 768px) {
     font-size: 28px;

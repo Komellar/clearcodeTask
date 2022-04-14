@@ -1,18 +1,14 @@
-import { useState } from "react";
-import friendsService from "../../services/friendsService";
-
 import * as S from "./FriendsStyled";
 import { SearchBar } from "../../components/UI/SearchBar";
 import NavBar from "../../components/layout/navigation/NavBar";
 import Profile from "../../components/Profile/";
+import { useSelector } from "react-redux";
 
 const Friends = () => {
-  const [friendsList, setFriendsList] = useState([]);
+  const peopleList = useSelector((state) => state.friends.allPeople);
 
-  friendsService.getList().then((result) => {
-    console.log(result);
-    setFriendsList(result);
-  });
+  console.log(peopleList);
+
   return (
     <>
       <NavBar />
@@ -24,7 +20,7 @@ const Friends = () => {
         />
 
         <S.Grid>
-          {friendsList.map((person) => (
+          {peopleList?.map((person) => (
             <Profile
               key={person.id}
               pending={person.status === "PENDING"}

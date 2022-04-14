@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <S.Bar>
       <S.Info>
-        <S.Logo>Rootsly</S.Logo>
+        <S.Logo to="/">Rootsly</S.Logo>
         <S.Divider />
         <S.Description>Explore your relationships</S.Description>
       </S.Info>

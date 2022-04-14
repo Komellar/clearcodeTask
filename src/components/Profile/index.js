@@ -1,7 +1,19 @@
+import { useDispatch } from "react-redux";
+import { friendsActions } from "../../store/slices/friends-slice";
 import { MainButton, PendingButton } from "../UI/Buttons";
 import * as S from "./ProfileStyled";
 
 const Profile = ({ pending, profile }) => {
+  const dispatch = useDispatch();
+
+  const acceptBtnHandler = () => {
+    dispatch(friendsActions.addToFriendsList(profile));
+  };
+
+  const removeBtnHandler = () => {
+    dispatch(friendsActions.removeFromFriendsList(profile));
+  };
+
   return (
     <S.Card>
       <S.ProfileImage src={profile.photoUrl} />
@@ -12,16 +24,20 @@ const Profile = ({ pending, profile }) => {
         <>
           <PendingButton secondary>Pending Invitation</PendingButton>
           <S.ProfileActions>
-            <MainButton secondary>Reject</MainButton>
-            <MainButton>Accept</MainButton>
+            <MainButton secondary onClick={removeBtnHandler}>
+              Reject
+            </MainButton>
+            <MainButton onClick={acceptBtnHandler}>Accept</MainButton>
           </S.ProfileActions>
         </>
       )}
       {!pending && (
         <>
           <PendingButton>Accepted</PendingButton>
-          <S.ProfileActions pending={pending}>
-            <MainButton secondary>Remove</MainButton>
+          <S.ProfileActions pending={true}>
+            <MainButton secondary onClick={removeBtnHandler}>
+              Remove
+            </MainButton>
           </S.ProfileActions>
         </>
       )}
