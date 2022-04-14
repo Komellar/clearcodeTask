@@ -1,11 +1,13 @@
-import { MainButton, PendingButton } from "../../components/UI/Buttons";
+import { MainButton, PendingButton } from "../UI/Buttons";
 import * as S from "./ProfileStyled";
 
 const Profile = ({ pending, profile }) => {
   return (
     <S.Card>
-      <S.ProfileImage src={profile.img} />
-      <S.ProfileName>{profile.name}</S.ProfileName>
+      <S.ProfileImage src={profile.photoUrl} />
+      <S.ProfileName>
+        {profile.firstName} {profile.lastName}
+      </S.ProfileName>
       {pending && (
         <>
           <PendingButton secondary>Pending Invitation</PendingButton>

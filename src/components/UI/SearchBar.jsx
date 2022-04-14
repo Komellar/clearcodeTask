@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
+export const SearchBar = styled.input`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 8px 46px 8px 16px;
+  margin: ${(p) => (p.margin ? p.margin : "0")};
 
   width: 467px;
   height: 30px;
@@ -31,5 +32,12 @@ export const Input = styled.input`
   &:hover,
   &:focus {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 375px) {
+    width: 80%;
   }
 `;

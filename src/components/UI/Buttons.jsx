@@ -28,6 +28,12 @@ export const MainButton = styled.button`
   &:focus {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   }
+
+  @media screen and (max-width: 320px) {
+    padding: 0.4em 2.6em;
+    font-size: 12px;
+    line-height: 14px;
+  }
 `;
 
 export const PendingButton = styled.button`

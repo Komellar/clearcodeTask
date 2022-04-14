@@ -15,6 +15,10 @@ export const Card = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+
+  @media screen and (max-width: 320px) {
+    width: 240px;
+  }
 `;
 
 export const ProfileImage = styled.img`
