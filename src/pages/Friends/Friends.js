@@ -26,12 +26,18 @@ const Friends = () => {
 
   useEffect(() => {
     setSearchedPeople(
-      peopleList?.filter((person) =>
-        (
-          person.firstName?.toLowerCase().toString() +
-          " " +
-          person.lastName?.toLowerCase().toString()
-        ).includes(searchValue.toLowerCase())
+      peopleList?.filter(
+        (person) =>
+          (
+            person.firstName?.toLowerCase().toString() +
+            " " +
+            person.lastName?.toLowerCase().toString()
+          ).includes(searchValue.toLowerCase()) ||
+          (
+            person.lastName?.toLowerCase().toString() +
+            " " +
+            person.firstName?.toLowerCase().toString()
+          ).includes(searchValue.toLowerCase())
       )
     );
   }, [peopleList, searchValue]);

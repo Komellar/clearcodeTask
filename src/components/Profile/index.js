@@ -9,7 +9,7 @@ import * as S from "./ProfileStyled";
 
 const Profile = ({ pending, profile }) => {
   const animation = useAnimation();
-  const { ref, inView } = useInView({ threshold: 0.1 });
+  const { ref, inView } = useInView();
 
   const initial = { opacity: 0, scale: 0.8 };
 
@@ -37,7 +37,7 @@ const Profile = ({ pending, profile }) => {
       ref={ref}
       initial={initial}
       animate={animation}
-      transition={{ delay: 0.3, duration: 0.6 }}
+      transition={{ delay: 0.1, duration: 0.6 }}
     >
       <S.ProfileImage src={profile.photoUrl} />
       <S.ProfileName>
