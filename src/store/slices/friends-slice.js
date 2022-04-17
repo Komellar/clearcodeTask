@@ -7,8 +7,8 @@ const friendsSlice = createSlice({
   },
   reducers: {
     setPeople(state, action) {
-      let unsortedList = [...action.payload];
-      let sortedList = unsortedList.sort((a, b) =>
+      const unsortedList = [...action.payload];
+      const sortedList = unsortedList.sort((a, b) =>
         a.status > b.status ? 1 : -1
       );
       state.allPeople = sortedList;

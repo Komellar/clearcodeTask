@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const SearchBar = styled.input`
+export const SearchBar = styled(motion.input)`
   display: flex;
   flex-direction: row;
   justify-content: center;

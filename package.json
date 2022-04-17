@@ -1,13 +1,15 @@
 {
-  "name": "clearcode-frontend-academy-react",
+  "name": "clearcode-frontend-academy-react-forked",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@reduxjs/toolkit": "1.8.1",
+    "framer-motion": "6.3.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-intersection-observer": "8.34.0",
     "react-redux": "7.2.8",
     "react-router-dom": "6.3.0",
     "react-scripts": "4.0.0",

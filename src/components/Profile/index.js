@@ -1,9 +1,27 @@
 import { useDispatch } from "react-redux";
 import { friendsActions } from "../../store/slices/friends-slice";
+import { useEffect } from "react";
+
+import { useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { MainButton, PendingButton } from "../UI/Buttons";
 import * as S from "./ProfileStyled";
 
 const Profile = ({ pending, profile }) => {
+  const animation = useAnimation();
+  const { ref, inView } = useInView({ threshold: 0.1 });
+
+  const initial = { opacity: 0, scale: 0.8 };
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        opacity: 1,
+        scale: 1.0
+      });
+    }
+  }, [inView, animation]);
+
   const dispatch = useDispatch();
 
   const acceptBtnHandler = () => {
@@ -15,7 +33,12 @@ const Profile = ({ pending, profile }) => {
   };
 
   return (
-    <S.Card>
+    <S.Card
+      ref={ref}
+      initial={initial}
+      animate={animation}
+      transition={{ delay: 0.3, duration: 0.6 }}
+    >
       <S.ProfileImage src={profile.photoUrl} />
       <S.ProfileName>
         {profile.firstName} {profile.lastName}

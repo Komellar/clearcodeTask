@@ -34,6 +34,12 @@ export const Logo = styled(Link)`
   line-height: 32px;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms ease;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
 
   @media screen and (max-width: 768px) {
     font-size: 28px;

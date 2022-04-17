@@ -6,6 +6,18 @@ import { SearchBar } from "../../components/UI/SearchBar";
 import NavBar from "../../components/layout/navigation/NavBar";
 import Profile from "../../components/Profile/";
 
+const searchVariants = {
+  hidden: {
+    y: -30,
+    opacity: 0
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6 }
+  }
+};
+
 const Friends = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchedPeople, setSearchedPeople] = useState([]);
@@ -33,6 +45,9 @@ const Friends = () => {
           placeholder="Search by name"
           margin="94px 0 64px"
           onChange={(e) => setSearchValue(e.target.value.trim())}
+          variants={searchVariants}
+          initial="hidden"
+          animate="visible"
         />
 
         <S.Grid>
